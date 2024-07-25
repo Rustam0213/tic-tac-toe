@@ -1,13 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Nunito, sans-serif;
+  margin: 20px;
+  background: rgb(146,0,162);
+  background: -moz-linear-gradient(90deg, rgba(146,0,162,1) 0%, rgba(68,0,255,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(146,0,162,1) 0%, rgba(68,0,255,1) 100%);
+  background: linear-gradient(90deg, rgba(146,0,162,1) 0%, rgba(68,0,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9200a2",endColorstr="#4400ff",GradientType=1);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-board {
+  margin: 20px;
+}
+
+.board-row {
+  display: flex;
+}
+
+.square {
+	box-shadow: inset 0 0 10px rgb(67, 67, 67);
+  background: #9d1bcd;
+  border: 2px solid #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 50px;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.square:hover {
+  background: #9c4cd2;
+  transform: scale(0.96);
+}
+
+.game-info {
+  text-align: center;
+}
+
+.status {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.reset-button {
+	box-shadow: inset 0 0 5px black;
+  border-radius: 10px;
+  background-color: #9a01ff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+.reset-button:active {
+	transform: scale(0.95);
+  background-color: #a51eff;
+}
+
+a{
+      color: #ffffff;
+      margin-top: 100px;
+}
+
+.tic {
+	margin-left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  animation: drawTic 0.5s ease forwards;
+}
+
+.tic .line {
+  position: absolute;
+  background-color: #f8f8f8;
+  width: 5px;
+  height: 55px;
+  opacity: 0;
+}
+
+.tic .line1 {
+  transform: rotate(45deg);
+  animation: drawLine1 0.25s ease forwards;
+}
+
+.tic .line2 {
+  transform: rotate(-45deg);
+  animation: drawLine2 0.25s ease forwards 0.25s;
+}
+
+@keyframes drawLine1 {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 55px;
+  }
+}
+
+@keyframes drawLine2 {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 55px;
+  }
+}
+
+.tac {
+	margin-left: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  animation: shrinkTac 0.5s ease forwards;
+}
+
+.tac .circle {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ffffff;
+  border-radius: 50%;
+}
+
+@keyframes shrinkTac {
+  0% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
